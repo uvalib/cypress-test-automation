@@ -14,21 +14,21 @@ const test_B_Url  = v4Url     + '/' + queryUrl
 const test_C_Url  = kioskUrl  + '/' + queryUrl
 
 describe('Visit ' + test_A_Url, () => {
-  it('should visit' + test_A_Url, () => { 
+  it('should visit ' + test_A_Url, () => { 
     cy.visit(test_A_Url);
     cy.contains(mustContain);
   });
 });
 
 describe('Visit ' + test_B_Url, () => {
-  it('should visit' + test_B_Url, () => { 
+  it('should visit ' + test_B_Url, () => { 
     cy.visit(test_B_Url);
     cy.contains(mustContain);
   });
 });
 
 describe('Visit ' + test_C_Url, () => {
-  it('should visit' + test_C_Url, () => { 
+  it('should visit ' + test_C_Url, () => { 
     cy.visit(test_C_Url);
     cy.contains(mustContain);
   });

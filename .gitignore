@@ -2,6 +2,7 @@
 node_modules
 cypress/fixtures
 cypress/plugins
+cypress/screenshots
 cypress/support
 cypress/videos
 cypress/integration/examples
