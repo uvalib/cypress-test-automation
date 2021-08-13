@@ -1,7 +1,10 @@
 #
 # build the target container
 #
-FROM cypress/included:7.4.0
+FROM cypress/included:8.2.0
+
+# temp only
+#ENTRYPOINT ["bash"]
 
 # Specify home 
 ENV APP_HOME /virgo4-cypress
@@ -12,4 +15,9 @@ RUN mkdir -p $APP_HOME/cypress/integration/
 
 # copy the test files
 COPY cypress/integration/*.js $APP_HOME/cypress/integration/
+#COPY cypress/integration/search_lite_spec.js $APP_HOME/cypress/integration/
 COPY cypress.json $APP_HOME/
+
+#
+# end of file
+#
