@@ -15,7 +15,6 @@ RUN mkdir -p $APP_HOME/cypress/integration/
 
 # copy the test files
 COPY cypress/integration/*.js $APP_HOME/cypress/integration/
-#COPY cypress/integration/search_lite_spec.js $APP_HOME/cypress/integration/
 COPY cypress.json $APP_HOME/
 
 #
