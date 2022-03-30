@@ -1,7 +1,7 @@
 #
 # build the target container
 #
-FROM cypress/included:9.5.1
+FROM cypress/included:9.5.3
 
 # temp only
 #ENTRYPOINT ["bash"]
