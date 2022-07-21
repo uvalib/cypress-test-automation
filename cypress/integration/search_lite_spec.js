@@ -17,7 +17,7 @@ describe('Visit search lite: ' + searchUrl, () => {
 });
 
 describe('Search for "jefferson" on search lite: ' + searchUrl, () => {
-  it('should visit ' + searchUrl, () => {
+  it('search for "jefferson" on search lite: ' + searchUrl, () => {
     
     // go to the search page
     cy.visit(searchUrl)
@@ -26,7 +26,7 @@ describe('Search for "jefferson" on search lite: ' + searchUrl, () => {
     cy.get('uvalib-catalog-lite').shadow().find('uvalib-page').find('uvalib-catalog-lite-home').shadow().find('#search').type('jefferson{enter}')
 
     // wait
-    cy.wait(2000)
+    cy.wait(5000)
 
     // make sure we have results
     cy.get('uvalib-catalog-lite').shadow().find('uvalib-page').find('uvalib-catalog-lite-home').shadow().find('uvalib-catalog-lite-results')
@@ -35,7 +35,7 @@ describe('Search for "jefferson" on search lite: ' + searchUrl, () => {
     cy.get('uvalib-catalog-lite').shadow().find('uvalib-page').find('uvalib-catalog-lite-home').shadow().find('uvalib-catalog-lite-results').shadow().find('uvalib-catalog-lite-pool-results').shadow().find('uvalib-catalog-lite-result').first().shadow().find('.hit-title').click()
 
     // wait
-    cy.wait(2000)
+    cy.wait(5000)
 
     // make sure we have a details page
     cy.get('uvalib-catalog-lite').shadow().find('uvalib-page').find('uvalib-catalog-lite-home').shadow().find('uvalib-catalog-lite-details')
