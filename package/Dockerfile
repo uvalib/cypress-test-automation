@@ -1,21 +1,27 @@
 #
 # build the target container
 #
-FROM cypress/included:9.7.0
-
-# temp only
-#ENTRYPOINT ["bash"]
+FROM cypress/included:10.11.0
 
 # Specify home 
 ENV APP_HOME /virgo4-cypress
 WORKDIR $APP_HOME
 
 # Create necessary directories
-RUN mkdir -p $APP_HOME/cypress/integration/
+RUN mkdir -p $APP_HOME/cypress/e2e/
+RUN mkdir -p $APP_HOME/cypress/support/
+RUN mkdir -p $APP_HOME/cypress/plugins/
+
+# copy the needed cypress files
+COPY cypress/support/*.js $APP_HOME/cypress/support/
+COPY cypress/plugins/*.js $APP_HOME/cypress/plugins/
+COPY cypress.config.js $APP_HOME/
 
 # copy the test files
-COPY cypress/integration/*.js $APP_HOME/cypress/integration/
-COPY cypress.json $APP_HOME/
+COPY cypress/e2e/*.js $APP_HOME/cypress/e2e/
+
+# temp only
+#ENTRYPOINT ["bash"]
 
 #
 # end of file
