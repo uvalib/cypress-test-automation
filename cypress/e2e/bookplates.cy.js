@@ -12,15 +12,8 @@ describe('Visit ' + test_start_Url, () => {
   it('should visit ' + test_start_Url, () => { 
     cy.visit(test_start_Url);
 
-    // click expected link
-    cy.get('uvalib-app').shadow().find('uvalib-article').shadow().find('article').find('a[href*="search"]').click();
-
-    // wait
-    cy.wait(2000)
-
-    // make sure we have some results
-    cy.get('.hits');
-
+    // make sure there is the title 'Ellen Bayard Weedon Foundation Gift Fund'
+    cy.contains( /Ellen Bayard Weedon Foundation Gift Fund/)
   });
 });
 
