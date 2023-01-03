@@ -26,7 +26,7 @@ describe('Search for "Cavalier Daily" on journal finder: ' + searchUrl, () => {
     cy.get('#s-lg-side-nav-content').find('#virgo4JournalName').type('Cavalier Daily{enter}')
 
     // wait
-    cy.wait(2000)
+    cy.wait(5000)
 
     // no error message box
     cy.get('.message-box').should('not.exist')
