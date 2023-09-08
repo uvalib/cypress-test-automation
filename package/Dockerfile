@@ -4,7 +4,7 @@
 FROM public.ecr.aws/cypress-io/cypress/included:13.1.0
 
 # Specify home 
-ENV APP_HOME /virgo4-cypress
+ENV APP_HOME /cypress-test-automation
 WORKDIR $APP_HOME
 
 # Create necessary directories
