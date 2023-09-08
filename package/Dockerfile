@@ -1,7 +1,7 @@
 #
 # build the target container
 #
-FROM cypress/included:12.17.4
+FROM public.ecr.aws/cypress-io/cypress/included:13.1.0
 
 # Specify home 
 ENV APP_HOME /virgo4-cypress
