@@ -32,7 +32,8 @@ describe('Search for "Cavalier Daily" on journal finder: ' + searchUrl, () => {
     cy.get('.message-box').should('not.exist')
 
     // make sure the journals facet checkbox is set
-    cy.get('#accordion-conttent-pool-filter').find('.v4-checkbox').get('[aria-checked="true"]').contains(/Journals/)
+    //cy.get('#accordion-conttent-pool-filter').find('.p-checkbox').get('[aria-checked="true"]').contains(/Journals/)
+    cy.get('#accordion-conttent-pool-filter').find('input#FilterResourceType-Journals').should('be.checked')
 
     // should only be results from one pool
     cy.get('.pool-tabs').find('button').should('have.length', 1)
