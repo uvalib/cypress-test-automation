@@ -1,10 +1,10 @@
 #
 # build the target container
 #
-FROM public.ecr.aws/cypress-io/cypress/included:13.1.0
+FROM public.ecr.aws/cypress-io/cypress/included:13.13.1
 
 # Specify home 
-ENV APP_HOME /cypress-test-automation
+ENV APP_HOME=/cypress-test-automation
 WORKDIR $APP_HOME
 
 # Create necessary directories
