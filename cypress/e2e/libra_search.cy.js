@@ -1,29 +1,43 @@
 //
-// standard set of catalog URL's to verify the Libra search form  works correctly
+// simple test to verify the Libra search form  works correctly
 //
 
 // test constants
-const mustContain = 'Libra Repository';
-const queryUrl    = 'search?mode=advanced&q=keyword:+{jefferson}+AND+filter:+{(FilterCollection:"Libra+Repository")}';
-const searchUrl   = 'https://search.lib.virginia.edu';
-const v4Url       = 'https://v4.lib.virginia.edu';
+const searchUrl   = 'https://library.virginia.edu/libra';
 
-const test_search_Url  = searchUrl + '/' + queryUrl;
-const test_v4_Url      = v4Url     + '/' + queryUrl;
+describe('Visit libra search: ' + searchUrl, () => {
+  it('should visit ' + searchUrl, () => { 
 
-describe('Visit ' + test_search_Url, () => {
-  it('should visit ' + test_search_Url, () => { 
-    cy.visit(test_search_Url);
-    cy.contains( /results for:/ );
-    cy.contains( mustContain );
+    // go to the search page
+    cy.visit(searchUrl)
+
+    // make sure there is the title 'Libra: Search and submit'
+    cy.contains( /Libra: Search and submit/)
   });
 });
 
-describe('Visit ' + test_v4_Url, () => {
-  it('should visit ' + test_v4_Url, () => { 
-    cy.visit(test_v4_Url);
-    cy.contains( /results for:/ );
-    cy.contains( mustContain );
+describe('Search for "Jefferson" on libra search: ' + searchUrl, () => {
+  it('should visit ' + searchUrl, () => {
+    
+    // go to the search page
+    cy.visit(searchUrl)
+
+    // add 'Jefferson' to the search box and hit enter
+    cy.get('#main-content').find('#libraQuery').type('Jefferson{enter}')
+
+    // wait
+    cy.wait(5000)
+
+    // no error message box
+    cy.get('.message-box').should('not.exist')
+
+    // should only be results from one pool
+    cy.get('.pool-tabs').find('button').should('have.length', 1)
+
+    // make sure we have results from all the libra repos
+    cy.contains( /Libra Data Repository/)
+    cy.contains( /Libra ETD Repository/)
+    cy.contains( /Libra Open Repository/)
   });
 });
 
