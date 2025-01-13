@@ -25,6 +25,7 @@ describe('Test whether Symphony Web is up and running', () => {
         cy.get('input#PIN').type(password, { log: false })
         cy.task("log", `logging into site ${url} as user ${username}`)
         cy.get('input[id^="submit_button"]', { timeout: 10000 }).should('be.visible').trigger("click", { force: true })
+        cy.task("log", `logged into site ${url} as user ${username} waiting for Users div to appear`)
         cy.get('div', { timeout: 60000 }).contains('Users', { timeout: 60000 }).click({ force: true})
         cy.get('div').contains(/Display.User/).click({ force: true })
         cy.get('input[id^="SirsiWriteTextField_"').type(usernametolookup)
