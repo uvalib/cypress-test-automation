@@ -37,7 +37,7 @@ describe('Search for "Jefferson" on libra search: ' + searchUrl, () => {
     // make sure we have results from all the libra repos
     cy.contains( /Libra Data Repository/)
     cy.contains( /Libra ETD Repository/)
-    cy.contains( /Libra Open Repository/)
+    cy.contains( /LibraOpen Repository/)
   });
 });
 
